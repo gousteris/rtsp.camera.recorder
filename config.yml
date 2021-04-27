@@ -1,0 +1,9 @@
+log_file: /var/log/camera_recorder.log
+cameras:
+  - name: Home
+    ip: 192.168.1.131
+    username: admin
+    password: superpassword
+    stream_path: 11
+    storage_path: /media/solonas/Seagate
+    retention: 10
