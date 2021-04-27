@@ -87,9 +87,6 @@ def start_streaming(config):
                     log("Found 5 seconds gap. Re-connecting to {ip}".format(ip=config["ip"]), LoggingType.ERROR, config)
                     cap = cv2.VideoCapture("rtsp://{username}:{password}@{ip}:554/{stream_path}".format(username=config["username"], password=config["password"], ip=config["ip"], stream_path=config["stream_path"]))
                     connection_refused = True
-                #cv2.imshow(config["name"],frame)
-            #if cv2.waitKey(1) & 0xFF == ord('q'):
-                #break
         else:
             log("Connection refused. Sleeping 5 seconds", LoggingType.ERROR, config)
             time.sleep(5)
@@ -116,7 +113,6 @@ def main():
     configure_logs(abstract_config)
     checks(config)
     cameras = list()
-    #start_streaming(config[0])
     for i in config:
         current_index = config.index(i)
         cameras.append(threading.Thread(target=start_streaming, args=(config[current_index],)))
